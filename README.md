@@ -45,7 +45,7 @@ The PaybackStaking contract allows for the staking of ERC20 tokens, with unique 
     <li>Handling of inactive accounts with an inactivity limit.</li>
 </ul>
 
-For full functionality and method descriptions, refer to the source code documentation.
+For full functionality and method descriptions, refer to the source code.
 
 ## Deployment
 
