@@ -5,17 +5,17 @@
 </br>
 </br>
 
-# VAIOT Single Asset Staking Contract
+# Payback Staking Smart Contract
 
-Welcome to the official repository for VAIOT's Single Asset Staking Smart Contract. This repository is dedicated to the development and maintenance of the staking contract using the Hardhat development environment, tailored for the Ethereum ecosystem.
+Welcome to the official repository for the Payback Staking Smart Contract utilized in the VAIOT's Payback program. This repository houses the development and maintenance of the staking contract designed for Ethereum-based tokens, utilizing the solidity programming language and the Hardhat development environment.
 
 ## Installation
 
-Begin by cloning the repository and installing the necessary dependencies:
+To get started with the Payback Staking Contract:
 
 ```bash
-git clone https://github.com/VAIOT/single-asset-staking.git
-cd single-asset-staking
+git clone https://github.com/VAIOT/payback-contract.git
+cd payback-contract
 npm install
 ```
 
@@ -36,19 +36,20 @@ ETHERSCAN_API_KEY= # Etherscan API key
 
 ## Smart Contract Overview
 
-The StakingRewards contract allows users to stake ERC20 tokens and earn rewards. Key features include:
+The PaybackStaking contract allows for the staking of ERC20 tokens, with unique features:
 
 <ul>
-    <li>Non-reentrancy for secure interactions.</li>
-    <li>Adjustable staking and reward parameters.</li>
-    <li>Automatic reward calculations based on the amount of users staking.</li>
-    <li>Immediate or delayed withdrawal options with a fee or grace period, respectively.</li>
+    <li>Staking initiated only by the owner, offering controlled participation.</li>
+    <li>Non-reentrant for secure user withdrawal transactions.</li>
+    <li>Fixed APY for predictable reward calculations.</li>
+    <li>Handling of inactive accounts with an inactivity limit.</li>
 </ul>
-Refer to the source code for detailed information on each function.
+
+For full functionality and method descriptions, refer to the source code documentation.
 
 ## Deployment
 
-Deploy the smart contract either locally or on the Mumbai testnet using the Hardhat tool.
+Deploy the smart contract either locally or on a testnet using the Hardhat tool.
 
 ### Local Deployment
 
