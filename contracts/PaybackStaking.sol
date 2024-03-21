@@ -40,6 +40,7 @@ contract PaybackStaking is ReentrancyGuard, Ownable {
   event TokenPoolRefilled(uint256 amount);
   event OwnerWithdrawn(uint256 amount);
   event InactiveUserUpdated(address indexed user);
+  event UserBalanceDecreased(address indexed user, uint256 amount);
 
   constructor(
     uint256 _initialAPY,
@@ -197,6 +198,33 @@ contract PaybackStaking is ReentrancyGuard, Ownable {
     totalStaked -= expiredFunds;
     stakingToken.safeTransfer(owner(), expiredFunds);
     emit OwnerWithdrawn(expiredFunds);
+  }
+
+  /**
+   * @dev Decreases the balance of a user by a specified amount without transferring the tokens.
+   * This function can only be called by the contract owner and is intended for regulatory or governance actions.
+   * @param _user The address of the user whose balance will be decreased.
+   * @param _amount The amount by which the user's balance will be decreased.
+   */
+  function decreaseUserBalance(
+    address _user,
+    uint256 _amount
+  ) external onlyOwner {
+    require(_user != address(0), "Invalid user address");
+    require(_amount > 0, "Amount must be greater than zero");
+
+    User storage usr = users[_user];
+    require(usr.exists, "User does not exist");
+    require(usr.balance >= _amount, "Insufficient user balance");
+
+    // Update the user's balance
+    usr.balance -= _amount;
+
+    // Optionally, adjust totalStaked to reflect the decrease in user balance
+    totalStaked -= _amount;
+
+    // Emit an event for transparency and tracking
+    emit UserBalanceDecreased(_user, _amount);
   }
 
   /**
