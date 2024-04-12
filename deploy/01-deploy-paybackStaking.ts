@@ -13,7 +13,7 @@ const deployPaybackStakingContract: DeployFunction = async function (
   let tokenAddress: string;
   let initialOwner: string;
 
-  if (chainId === 31337 || chainId === 80001) {
+  if (chainId === 31337 || chainId === 80002) {
     log("Test network detected!");
     const mockToken = await deployments.get("MockToken");
     tokenAddress = mockToken.address;

@@ -23,6 +23,9 @@ export const networkConfig: networkConfigInfo = {
     initialOwner: "",
     blockConfirmations: 6,
   },
+  polygonAmoy: {
+    blockConfirmations: 6,
+  },
 };
 
 export const developmentChains = ["hardhat", "localhost"];

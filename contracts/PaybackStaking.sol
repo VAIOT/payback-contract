@@ -56,7 +56,7 @@ contract PaybackStaking is ReentrancyGuard, Ownable {
   /**
    * @dev Deposits tokens on behalf of a user.
    * @notice Only callable by the contract owner.
-   * @param _user Address of the user for whom to deposit tokens.
+   * @param _user Address of the user for whom to deposit tokens......
    * @param _amount Amount of tokens to deposit.
    */
   function depositForUser(address _user, uint256 _amount) external onlyOwner {
