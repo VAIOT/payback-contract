@@ -10,7 +10,7 @@ const deployMocks: DeployFunction = async function (
   const { deploy, log } = deployments;
   const { deployer } = await getNamedAccounts();
   const chainId = network.config.chainId;
-  if (chainId === 31337 || chainId === 80002) {
+  if (chainId === 31337 || chainId === 80002 || chainId === 11155111) {
     log("Test network detected! Deploying mock ERC20 token...");
     const tokenContract = await deploy("MockToken", {
       contract: "MockToken",
@@ -21,9 +21,7 @@ const deployMocks: DeployFunction = async function (
     });
     log(`Mocks Deployed to ${tokenContract.address}`);
     log("----------------------------------");
-    if (chainId === 80002 && process.env.POLYGONSCAN_API_KEY) {
-      await verify(tokenContract.address, []);
-    }
+    await verify(tokenContract.address, []);
   }
 };
 export default deployMocks;

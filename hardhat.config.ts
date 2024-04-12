@@ -23,6 +23,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY || "";
 const OKLINK_API_KEY = process.env.OKLINK_API_KEY || "";
+const ETHEREUM_SEPOLIA_RPC_URL = process.env.ETHEREUM_SEPOLIA_RPC_URL || "";
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -47,6 +48,11 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
       chainId: 80002,
     },
+    sepolia: {
+      url: ETHEREUM_SEPOLIA_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: 11155111,
+    },
   },
   solidity: {
     compilers: [
@@ -66,6 +72,7 @@ const config: HardhatUserConfig = {
       polygonMumbai: POLYGONSCAN_API_KEY,
       polygon: POLYGONSCAN_API_KEY,
       polygonAmoy: OKLINK_API_KEY,
+      sepolia: ETHERSCAN_API_KEY,
     },
     customChains: [
       {

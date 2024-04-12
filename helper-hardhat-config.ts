@@ -26,6 +26,9 @@ export const networkConfig: networkConfigInfo = {
   polygonAmoy: {
     blockConfirmations: 6,
   },
+  sepolia: {
+    blockConfirmations: 6,
+  },
 };
 
 export const developmentChains = ["hardhat", "localhost"];
