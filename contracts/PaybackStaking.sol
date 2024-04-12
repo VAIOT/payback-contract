@@ -83,7 +83,7 @@ contract PaybackStaking is ReentrancyGuard, Ownable {
         usr.balance = 0;
         usr.rewards = 0;
         stakingToken.safeTransfer(owner(), amountExpired);
-      } else {
+      } else if (usr.balance > 0) {
         updateReward(_user);
         usr.lastUpdateTime = block.timestamp;
       }
