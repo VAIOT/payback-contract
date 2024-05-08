@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 /// @notice Contract that deploys a ERC20 token for testing the Payback contract!!!!!!!!
 
 contract MockToken is ERC20 {
+  // Mock token name instead of VAI for testing purposes
   constructor() ERC20("VaiTesting", "VAIT") {}
 
   function mint(address account, uint256 amount) public {
