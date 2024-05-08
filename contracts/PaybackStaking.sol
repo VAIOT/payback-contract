@@ -17,11 +17,11 @@ contract PaybackStaking is ReentrancyGuard, Ownable {
     uint256 rewards; // Total amount of rewards gained by user
     uint256 depositTime; // Timestamp of the last deposit or withdrawal
     uint256 lastUpdateTime; // Timestamp of the last reward calculation
-    bool exists; // Flag to check if the user exists
+    bool exists; // Flag to check if the user exists.
   }
 
   // Mappings
-  mapping(address => User) private users;
+  mapping(address => User) private users; // Allows you to get users associated with the address
 
   // Variables
   address[] private userAddresses;
@@ -56,7 +56,7 @@ contract PaybackStaking is ReentrancyGuard, Ownable {
   /**
    * @dev Deposits tokens on behalf of a user.
    * @notice Only callable by the contract owner.
-   * @param _user Address of the user for whom to deposit tokens......
+   * @param _user Address of the user for whom to deposit tokens
    * @param _amount Amount of tokens to deposit.
    */
   function depositForUser(address _user, uint256 _amount) external onlyOwner {
